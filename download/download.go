@@ -31,6 +31,16 @@ func download(path, dest string, firstAttempt bool) (root *vcs.RepoRoot, err err
 	if err != nil {
 		return root, err
 	}
+	// root = &vcs.RepoRoot{
+	// 	VCS: &vcs.Cmd{
+	// 		Name:        "Git",
+	// 		Cmd:         "git",
+	// 		CreateCmd:   "clone",
+	// 		DownloadCmd: "pull",
+	// 	},
+	// 	Repo: path,
+	// 	Root: strings.TrimSuffix(strings.TrimPrefix(strings.Replace(path, ":", "/", -1), "git@"), ".git"),
+	// }
 
 	localDirPath := filepath.Join(dest, root.Root, "..")
 
@@ -71,7 +81,7 @@ func download(path, dest string, firstAttempt bool) (root *vcs.RepoRoot, err err
 			log.Printf("WARN: could not parse root.Repo: %v", err)
 		} else {
 			if u.Host == "github.com" {
-				u.User = url.UserPassword("gojp", "gojp")
+				u.User = url.UserPassword("git", "git")
 				rootRepo = u.String()
 			}
 		}

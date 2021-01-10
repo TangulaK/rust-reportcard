@@ -1,96 +1,94 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Go Report Card | Go project code quality report cards</title>
-    <link rel="stylesheet" href="/assets/bulma.0.0.23.min.css">
-    <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/assets/goreportcard.css">
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', '[[ .google_analytics_key ]]', 'auto');
-      ga('send', 'pageview');
-
-    </script>
+  <title>Rust Report Card | Rust project code quality report cards</title>
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="alternate icon" type="image/png" href="/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/assets/bulma.0.0.23.min.css">
+  <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/rsreportcard.css">
 </head>
+
 <body>
   <div id="notifications">
   </div>
   <header class="header">
-  <div class="container">
-        <!-- Left side -->
-        <div class="header-left">
-          <a class="header-item" href="/">
-            <h3 class="title">Go Report Card</h3>
-          </a>
-          <div class="header-item">
-              <form method="POST" action="/checks" id="check_form">
-                <input name="repo" type="text" class="input-box" value="[[ .repo ]]" placeholder="[[ .repo ]]"/>
-              </form>
-          </div>
-        </div>
-
-        <!-- Hamburger menu (on mobile) -->
-        <span class="header-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-
-        <!-- Right side -->
-        <div class="header-right header-menu">
-          <span class="header-item">
-            <a href="/high_scores">High Scores</a>
-          </span>
-          <span class="header-item">
-            <a href="https://github.com/gojp/goreportcard">GitHub</a>
-          </span>
-          <span class="header-item">
-            <a href="/about">About</a>
-          </span>
+    <div class="container">
+      <!-- Left side -->
+      <div class="header-left">
+        <a class="header-item" href="/">
+          <h3 class="title">Rust Report Card</h3>
+        </a>
+        <div class="header-item">
+          <form method="POST" action="/checks" id="check_form">
+            <input name="repo" type="text" class="input-box" value="[[ .repo ]]" placeholder="[[ .repo ]]" />
+          </form>
         </div>
       </div>
+
+      <!-- Hamburger menu (on mobile) -->
+      <span class="header-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+
+      <!-- Right side -->
+      <div class="header-right header-menu">
+        <span class="header-item">
+          <a href="/high_scores">High Scores</a>
+        </span>
+        <!--           <span class="header-item">
+            <a href="https://github.com/xuri">GitHub</a>
+          </span> -->
+        <span class="header-item">
+          <a href="/about">About</a>
+        </span>
+      </div>
+    </div>
   </header>
   <section class="section container-loading">
-      <div class="container loading">
-          <div class="columns">
-              <div class="column has-text-centered">
-                  <h3 class="subtitle">Preparing report...</h3>
-                  <button class="button is-loading is-large" style="border: none;">
-              </div>
-          </div>
+    <div class="container loading">
+      <div class="columns">
+        <div class="column has-text-centered">
+          <h3 class="subtitle">Preparing report...</h3>
+          <button class="button is-loading is-large" style="border: none;">
+        </div>
       </div>
+    </div>
   </section>
 
   <section class="section container-results [[if .loading]]hidden[[end]]">
     <div class="container">
-        <div class="columns results-text">
-        </div>
-        <div class="columns">
-          <div class="column is-one-quarter">
-            <nav class="panel results">
-            </nav>
-            <div class="container-update">
-            </div>
-          </div>
-          <div class="column">
-              <div class="results-details">
-              </div>
+      <div class="columns results-text">
+      </div>
+      <div class="columns">
+        <div class="column is-one-quarter">
+          <nav class="panel results">
+          </nav>
+          <div class="container-update">
           </div>
         </div>
+        <div class="column">
+          <div class="results-details">
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   [[ template "footer" . ]]
 
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js" integrity="sha256-+JMHsXRyeTsws/tzbIh5YHQxRdKCuNjmvNcTFtY6DLc=" crossorigin="anonymous"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.2.1/jquery.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"
+    integrity="sha256-+JMHsXRyeTsws/tzbIh5YHQxRdKCuNjmvNcTFtY6DLc=" crossorigin="anonymous"></script>
   <script id="template-alert" type="text/x-handlebars-template">
       <div class="notification is-warning">
           <button class="delete"></button>
@@ -105,13 +103,6 @@
       </div>
       <div class="column is-one-quarter badge-col">
         <img class="badge" tag="{{repo}}" src="/badge/{{repo}}"/>
-        <a class="button is-info is-small tweet-button"
-          href="https://twitter.com/intent/tweet?text={{ repo }} gets {{#if use_an}}an{{else}}a{{/if}} {{ grade_encoded }} on goreportcard.com! #golang">
-            <span class="icon is-small">
-              <i class="fa fa-twitter"></i>
-            </span>
-            <span>Tweet</span>
-        </a>
       </div>
   </script>
   <script id="template-check" type="text/x-handlebars-template">
@@ -126,7 +117,7 @@
               <label>Image URL</label><input value="{{{image_url}}}">
           </div>
           <div>
-              <label>Markdown</label><input value="[![Go Report Card]({{{image_url}}})]({{{url}}})">
+              <label>Markdown</label><input value="[![Rust Report Card]({{{image_url}}})]({{{url}}})">
           </div>
       </div>
   </script>
@@ -147,7 +138,13 @@
             <a href="{{this.file_url}}">{{this.filename}}</a>
             {{#each this.errors}}
               {{#if line_number}}
-              <li class="error"><a href="{{../file_url}}#L{{this.line_number}}">Line {{this.line_number}}</a>: {{this.error_string}}</li>
+              <li class="error"><a href="{{../file_url}}#L{{this.line_number}}">Line {{this.line_number}}</a>: <pre style="
+                white-space: pre-wrap;       /* Since CSS 2.1 */
+                white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+                white-space: -pre-wrap;      /* Opera 4-6 */
+                white-space: -o-pre-wrap;    /* Opera 7 */
+                word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            ">{{this.error_string}}</pre></li>
               {{/if}}
             {{/each}}
             </ul>
@@ -167,11 +164,11 @@
   <p><a class="refresh-button button" href=""><strong>Refresh now</strong></a></p>
   </script>
   <script>
-  var loading = [[if .loading]] true [[ else ]] false [[end]];
-  var response = [[if .loading]] false [[else]] [[.response]] [[end]];
+    var loading = [[if .loading]]true[[ else]] false[[end]];
+    var response = [[if .loading]]false[[else]][[.response]][[end]];
   </script>
   <script type="text/javascript">
-    Handlebars.registerHelper('gradeMessage', function(grade, options) {
+    Handlebars.registerHelper('gradeMessage', function (grade, options) {
       var gradeMessages = {
         "A+": "Excellent!",
         "A": "Great!",
@@ -185,8 +182,8 @@
     });
 
     // add a helper for picking the progress bar colors
-    Handlebars.registerHelper('color', function(percentage, options) {
-      switch(true){
+    Handlebars.registerHelper('color', function (percentage, options) {
+      switch (true) {
         case percentage < 30:
           return 'danger';
         case percentage < 50:
@@ -198,7 +195,7 @@
       };
     });
 
-    Handlebars.registerHelper('isfalse', function(percentage, options) {
+    Handlebars.registerHelper('isfalse', function (percentage, options) {
       return percentage == false;
     });
 
@@ -207,77 +204,77 @@
 
     // initialize handlebars templates
     var templates = {};
-    $("script[id^=template]").each(function(){
+    $("script[id^=template]").each(function () {
       var name = $(this).attr("id").substring(9);
-      var source   = $(this).html();
+      var source = $(this).html();
       templates[name] = Handlebars.compile(source);
     });
 
-    var shrinkHeader = function(){
+    var shrinkHeader = function () {
       var $hero = $("section.hero");
       $hero.slideUp();
     }
 
-    var populateResults = function(data){
-        var checks = data.checks;
-        var $resultsText = $(".results-text");
-        var $resultsDetails = $('.results-details').empty();
+    var populateResults = function (data) {
+      var checks = data.checks;
+      var $resultsText = $(".results-text");
+      var $resultsDetails = $('.results-details').empty();
 
-        for (var i = 0; i < allowedLinkDomains.length; i++) {
-          if (data.resolvedRepo.indexOf(allowedLinkDomains[i]) == 0) {
-            data.link = data.resolvedRepo;
-          }
+      for (var i = 0; i < allowedLinkDomains.length; i++) {
+        if (data.resolvedRepo.indexOf(allowedLinkDomains[i]) == 0) {
+          data.link = data.resolvedRepo;
         }
-        data.use_an = data.grade == "A" || data.grade == "A+";
-        data.grade_encoded = encodeURIComponent(data.grade);
-        $resultsText.html($(templates.grade(data)));
-        var $table = $(".results");
-        $table.html('<p class="panel-heading">Results</p>');
-        for (var i = 0; i < checks.length; i++) {
-            checks[i].percentage = parseInt(checks[i].percentage * 100.0);
-            var $headRow = $(templates.check(checks[i]));
-            $headRow.on("click", function(){
-            $(this).closest("nav").find(".is-active").removeClass("is-active");
-              $(this).toggleClass("is-active");
-            });
-            $headRow.appendTo($table);
-            if (i == 0) {
-                $headRow.toggleClass("is-active");
-            }
-
-            var $details = $(templates.details(checks[i]));
-            $details.appendTo($resultsDetails);
+      }
+      data.use_an = data.grade == "A" || data.grade == "A+";
+      data.grade_encoded = encodeURIComponent(data.grade);
+      $resultsText.html($(templates.grade(data)));
+      var $table = $(".results");
+      $table.html('<p class="panel-heading">Results</p>');
+      for (var i = 0; i < checks.length; i++) {
+        checks[i].percentage = parseInt(checks[i].percentage * 100.0);
+        var $headRow = $(templates.check(checks[i]));
+        $headRow.on("click", function () {
+          $(this).closest("nav").find(".is-active").removeClass("is-active");
+          $(this).toggleClass("is-active");
+        });
+        $headRow.appendTo($table);
+        if (i == 0) {
+          $headRow.toggleClass("is-active");
         }
-        $(".container-suggestions").addClass('hidden');
-        $(".container-results").removeClass('hidden').slideDown();
 
-        $lastRefresh = $(templates.lastrefresh(data));
-        $div = $(".container-update").html($lastRefresh);
-        $div.find("a.refresh-button").on("click", function(e){
-          loadData.call($("form#check_form")[0], false);
-          $(this).addClass('is-loading');
-          return false;
-        });
+        var $details = $(templates.details(checks[i]));
+        $details.appendTo($resultsDetails);
+      }
+      $(".container-suggestions").addClass('hidden');
+      $(".container-results").removeClass('hidden').slideDown();
 
-        var badgeData = {
-            url: "https://[[ .domain ]]/report/" + data.repo,
-            image_url: "https://[[ .domain ]]/badge/" + data.repo,
-        }
-        var $badgeDropdown = $(templates.badgedropdown(badgeData));
-        $badgeDropdown.find("input").on("click", function(){
-            $(this).select();
-        });
-        $(".badge-col").append($badgeDropdown);
-        $(".badge-col .badge").on("click", function(){
-            $(this).closest(".badge-col").find("#badge_dropdown").toggleClass("hidden");
-        });
+      $lastRefresh = $(templates.lastrefresh(data));
+      $div = $(".container-update").html($lastRefresh);
+      $div.find("a.refresh-button").on("click", function (e) {
+        loadData.call($("form#check_form")[0], false);
+        $(this).addClass('is-loading');
+        return false;
+      });
+
+      var badgeData = {
+        url: "https://[[ .domain ]]/report/" + data.repo,
+        image_url: "https://[[ .domain ]]/badge/" + data.repo,
+      }
+      var $badgeDropdown = $(templates.badgedropdown(badgeData));
+      $badgeDropdown.find("input").on("click", function () {
+        $(this).select();
+      });
+      $(".badge-col").append($badgeDropdown);
+      $(".badge-col .badge").on("click", function () {
+        $(this).closest(".badge-col").find("#badge_dropdown").toggleClass("hidden");
+      });
     };
 
-    function alertMessage(msg){
-      var html = templates.alert({message: msg});
+    function alertMessage(msg) {
+      var html = templates.alert({ message: msg });
       var $alert = $(html);
-      $alert.find(".delete").on("click", function(){
-          $(this).closest(".notification").remove();
+      $alert.find(".delete").on("click", function () {
+        $(this).closest(".notification").remove();
       });
       $("#notifications").children().remove();
       $alert.hide();
@@ -285,68 +282,69 @@
       $alert.slideDown();
     }
 
-    var loadData = function(getRequest){
+    var loadData = function (getRequest) {
       loading = true;
       var $form = $(this),
-          url = $form.attr("action"),
-          method = $form.attr("method"),
-          data = {};
-        $form.serializeArray().map(function(x){data[x.name] = x.value;});
+        url = $form.attr("action"),
+        method = $form.attr("method"),
+        data = {};
+      $form.serializeArray().map(function (x) { data[x.name] = x.value; });
 
-        if(!data["repo"]) {
-            alertMessage("Input cannot be empty. Please enter a valid repository path");
-            return false;
-        }
+      if (!data["repo"]) {
+        alertMessage("Input cannot be empty. Please enter a valid repository path");
+        return false;
+      }
 
-        $("#check_form .button").addClass("is-loading");
+      $("#check_form .button").addClass("is-loading");
       $.ajax({
-          type: getRequest ? "GET" : "POST",
-          url: url,
-          data: data,
-          dataType: "json"
-      }).fail(function(xhr, status, err){
-          alertMessage("There was an error processing your request: " + xhr.responseText);
-      }).done(function(data, textStatus, jqXHR){
-          if (data.redirect) {
-              location.replace(data.redirect);
-          }
-      }).always(function(){
-          loading = false;
-          $("a.refresh-button").removeClass("is-loading");
-          $("#check_form .button").removeClass("is-loading");
-          $(".container-loading").slideUp();
+        type: getRequest ? "GET" : "POST",
+        url: url,
+        data: data,
+        dataType: "json"
+      }).fail(function (xhr, status, err) {
+        alertMessage("There was an error processing your request: " + xhr.responseText);
+      }).done(function (data, textStatus, jqXHR) {
+        if (data.redirect) {
+          location.replace(data.redirect);
+        }
+      }).always(function () {
+        loading = false;
+        $("a.refresh-button").removeClass("is-loading");
+        $("#check_form .button").removeClass("is-loading");
+        $(".container-loading").slideUp();
       });
       return false;
     };
 
-    var hideResults = function(){
+    var hideResults = function () {
       $(".container-results").hide();
     };
 
     // on ready
-    $(function(){
+    $(function () {
 
       if (loading) {
-          // we need to load the results
-          loadData.call($("form#check_form")[0], true);
+        // we need to load the results
+        loadData.call($("form#check_form")[0], true);
       } else {
-          populateResults(JSON.parse(response));
-          $(".container-loading").slideUp();
+        populateResults(JSON.parse(response));
+        $(".container-loading").slideUp();
       }
 
       // handle form submission
       $("form#check_form").submit(loadData);
 
       // sticky menu
-      $(window).scroll(function() {
-          if ($(this).scrollTop() >= 240) {
-              $('nav.results').addClass('stickytop');
-          }
-          else {
-              $('nav.results').removeClass('stickytop');
-          }
+      $(window).scroll(function () {
+        if ($(this).scrollTop() >= 240) {
+          $('nav.results').addClass('stickytop');
+        }
+        else {
+          $('nav.results').removeClass('stickytop');
+        }
       });
     });
   </script>
 </body>
+
 </html>

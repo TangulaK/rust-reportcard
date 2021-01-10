@@ -30,5 +30,5 @@ The cyclomatic complexity of a function is calculated according to the following
 1 is the base complexity of a function
 +1 for each 'if', 'for', 'case', '&&' or '||'
 
-Go Report Card warns on functions with cyclomatic complexity > 15.`
+Rust Report Card warns on functions with cyclomatic complexity > 15.`
 }

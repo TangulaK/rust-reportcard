@@ -8,8 +8,8 @@ import (
 
 	"github.com/dgraph-io/badger/v2"
 	"github.com/dustin/go-humanize"
-	"github.com/gojp/goreportcard/check"
-	"github.com/gojp/goreportcard/download"
+	"github.com/xuri/rust-reportcard/check"
+	"github.com/xuri/rust-reportcard/download"
 )
 
 type notFoundError struct {

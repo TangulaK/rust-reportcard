@@ -1,84 +1,101 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Go Report Card | Go project code quality report cards</title>
-    <link rel="stylesheet" href="/assets/bulma.0.0.23.min.css">
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', '[[ .google_analytics_key ]]', 'auto');
-      ga('send', 'pageview');
-
-    </script>
-    <style>
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="alternate icon" type="image/png" href="/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <title>Rust Report Card | Rust project code quality report cards</title>
+  <link rel="stylesheet" href="/assets/bulma.0.0.23.min.css">
+  <style>
     .header .is-active {
-        font-weight: bold;
+      font-weight: bold;
     }
-    </style>
+  </style>
 </head>
+
 <body>
-    <header class="header">
+  <header class="header">
     <div class="container">
-          <!-- Left side -->
-          <div class="header-left">
-            <a class="header-item" href="/">
-              <h3 class="title">Go Report Card</h3>
-            </a>
-          </div>
+      <!-- Left side -->
+      <div class="header-left">
+        <a class="header-item" href="/">
+          <h3 class="title">Rust Report Card</h3>
+        </a>
+      </div>
 
-          <!-- Hamburger menu (on mobile) -->
-          <span class="header-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
+      <!-- Hamburger menu (on mobile) -->
+      <span class="header-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
 
-          <!-- Right side -->
-          <div class="header-right header-menu">
-            <span class="header-item">
-              <a href="/high_scores">High Scores</a>
-            </span>
-            <span class="header-item">
-              <a href="https://github.com/gojp/goreportcard">GitHub</a>
-            </span>
-            <span class="header-item is-active">
-              <a href="/about">About</a>
-            </span>
-          </div>
+      <!-- Right side -->
+      <div class="header-right header-menu">
+        <span class="header-item">
+          <a href="/high_scores">High Scores</a>
+        </span>
+        <!--             <span class="header-item">
+              <a href="https://github.com/xuri">GitHub</a>
+            </span> -->
+        <span class="header-item is-active">
+          <a href="/about">About</a>
+        </span>
+      </div>
+    </div>
+  </header>
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-4 is-hidden-mobile has-text-centered">
+          <img id="gopherimage" src="/assets/rust-logo-600x600.png">
         </div>
-    </header>
-    <section class="section">
-        <div class="container">
-          <div class="columns">
-            <div class="column is-4 is-hidden-mobile has-text-centered">
-              <img id="gopherimage" src="/assets/gopherhat.jpg">
-            </div>
-            <div class="column is-8 content">
-              <br>
-              <h1 class="title">Page not found!</h1>
-              <p>It seems like the page you are looking for is no longer here. Check the URL for typos, or click below to return to the homepage. If you think this is a mistake, please <a href="https://github.com/gojp/goreportcard/issues">open an issue on Github</a>.</p>
-              <p><h3 class="subtitle"><a href="/">Back to grading Go repos</a></h3></p>
-            </div>
+        <div class="column is-8 content">
+          <br>
+          <h1 class="title">Page not found!</h1>
+          <p>It seems like the page you are looking for is no longer here. Check the URL for typos, or click below to
+            return to the homepage. If you think this is a mistake, please <a
+              href="https://github.com/xuri/rust-reportcard/issues">open an issue on Github</a>.</p>
+          <p>
+          <h3 class="subtitle"><a href="/">Back to grading Rust repos</a></h3>
+          </p>
         </div>
-    </section>
-    [[ template "footer" . ]]
-    <style>
+      </div>
+  </section>
+  [[ template "footer" . ]]
+  <style>
     #gopherimage {
-        width: 200px;
-        margin: 0;
-        -webkit-animation:spin 2s linear infinite;
-        -moz-animation:spin 2s linear infinite;
-        animation:spin 2s linear infinite;
+      width: 200px;
+      margin: 0;
+      -webkit-animation: spin 2s linear infinite;
+      -moz-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
     }
-    @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-    @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-    @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-    </style>
+
+    @-moz-keyframes spin {
+      100% {
+        -moz-transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </body>
+
 </html>

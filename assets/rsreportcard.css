@@ -141,7 +141,8 @@ nav.results.stickytop {
 }
 @media (min-width: 600px) {
     .hero.gopher {
-        background-image: url(/assets/biggopher.png);
+        padding-bottom: 6em;
+        background-image: url(/assets/banner.png);
         background-repeat: no-repeat;
         background-position: left middle;
         background-size: cover;

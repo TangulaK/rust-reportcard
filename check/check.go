@@ -43,7 +43,7 @@ func Run(dir string) (ChecksResult, error) {
 		return ChecksResult{}, fmt.Errorf("could not get filenames: %v", err)
 	}
 	if len(filenames) == 0 {
-		return ChecksResult{}, fmt.Errorf("no .go files found")
+		return ChecksResult{}, fmt.Errorf("no .rs files found")
 	}
 
 	err = RenameFiles(skipped)
@@ -53,13 +53,13 @@ func Run(dir string) (ChecksResult, error) {
 	defer RevertFiles(skipped)
 
 	checks := []Check{
-		GoFmt{Dir: dir, Filenames: filenames},
-		GoVet{Dir: dir, Filenames: filenames},
-		GoLint{Dir: dir, Filenames: filenames},
-		GoCyclo{Dir: dir, Filenames: filenames},
-		License{Dir: dir, Filenames: []string{}},
-		Misspell{Dir: dir, Filenames: filenames},
-		IneffAssign{Dir: dir, Filenames: filenames},
+		// GoFmt{Dir: dir, Filenames: filenames},
+		// GoVet{Dir: dir, Filenames: filenames},
+		// GoLint{Dir: dir, Filenames: filenames},
+		// GoCyclo{Dir: dir, Filenames: filenames},
+		// License{Dir: dir, Filenames: []string{}},
+		// Misspell{Dir: dir, Filenames: filenames},
+		Clippy{Dir: dir, Filenames: filenames},
 		// ErrCheck{Dir: dir, Filenames: filenames}, // disable errcheck for now, too slow and not finalized
 	}
 

@@ -1,4 +1,4 @@
-module github.com/gojp/goreportcard
+module github.com/xuri/rust-reportcard
 
 go 1.14
 
