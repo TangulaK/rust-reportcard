@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/url"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 
@@ -31,16 +32,6 @@ func download(path, dest string, firstAttempt bool) (root *vcs.RepoRoot, err err
 	if err != nil {
 		return root, err
 	}
-	// root = &vcs.RepoRoot{
-	// 	VCS: &vcs.Cmd{
-	// 		Name:        "Git",
-	// 		Cmd:         "git",
-	// 		CreateCmd:   "clone",
-	// 		DownloadCmd: "pull",
-	// 	},
-	// 	Repo: path,
-	// 	Root: strings.TrimSuffix(strings.TrimPrefix(strings.Replace(path, ":", "/", -1), "git@"), ".git"),
-	// }
 
 	localDirPath := filepath.Join(dest, root.Root, "..")
 
@@ -85,14 +76,28 @@ func download(path, dest string, firstAttempt bool) (root *vcs.RepoRoot, err err
 				rootRepo = u.String()
 			}
 		}
-		err = root.VCS.Create(fullLocalPath, rootRepo)
+		// err = root.VCS.Create(fullLocalPath, rootRepo)
+		rootRepo = strings.Replace(rootRepo, "https://git:git@github.com/", "git@github.com:", -1)
+		cmd := exec.Command("git", "clone", rootRepo, fullLocalPath)
+		err = cmd.Run()
 		if err != nil {
 			return root, err
 		}
 	}
-	err = root.VCS.TagSync(fullLocalPath, "")
-	if err != nil && firstAttempt {
-		// may have been rebased; we delete the directory, then try one more time:
+	// err = root.VCS.TagSync(fullLocalPath, "")
+	// if err != nil && firstAttempt {
+	// 	// may have been rebased; we delete the directory, then try one more time:
+	// 	log.Printf("Failed to update %q (%v), trying again...", root.Repo, err.Error())
+	// 	err = os.RemoveAll(fullLocalPath)
+	// 	if err != nil {
+	// 		log.Printf("Failed to delete directory %s", fullLocalPath)
+	// 	}
+	// 	return download(path, dest, false)
+	// }
+	cmd := exec.Command("git", "pull")
+	cmd.Dir = fullLocalPath
+	err = cmd.Run()
+	if err != nil {
 		log.Printf("Failed to update %q (%v), trying again...", root.Repo, err.Error())
 		err = os.RemoveAll(fullLocalPath)
 		if err != nil {

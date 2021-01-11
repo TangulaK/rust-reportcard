@@ -34,7 +34,7 @@ func main() {
 				}
 				for _, repo := range repos {
 					path := "_repos/src/" + f.Name() + "/" + d.Name() + "/" + repo.Name()
-					if time.Since(d.ModTime()) > 30*24*time.Hour {
+					if time.Since(d.ModTime()) > 4*time.Hour {
 						if *real {
 							log.Printf("Deleting %s (repo is old)...", path)
 							os.RemoveAll(path)
@@ -44,18 +44,25 @@ func main() {
 						}
 					}
 
-					size, err := DirSize(path)
-					if err != nil {
-						log.Fatal(err)
+					if *real {
+						log.Printf("Deleting %s ...", path)
+						os.RemoveAll(path)
+					} else {
+						log.Printf("Would delete %s ", path)
 					}
-					if size < 20*1000*1000 {
-						if *real {
-							log.Printf("Deleting %s (dir size < 20M)...", path)
-							os.RemoveAll(path)
-						} else {
-							log.Printf("Would delete %s (dir size < 20M)", path)
-						}
-					}
+
+					// size, err := DirSize(path)
+					// if err != nil {
+					// 	log.Fatal(err)
+					// }
+					// if size < 20*1000*1000 {
+					// 	if *real {
+					// 		log.Printf("Deleting %s (dir size < 20M)...", path)
+					// 		os.RemoveAll(path)
+					// 	} else {
+					// 		log.Printf("Would delete %s (dir size < 20M)", path)
+					// 	}
+					// }
 				}
 			}
 		}

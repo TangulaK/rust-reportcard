@@ -13,10 +13,10 @@ func (g Clippy) Name() string {
 
 // Weight returns the weight this check has in the overall average
 func (g Clippy) Weight() float64 {
-	return 1
+	return .95
 }
 
-// Percentage returns the percentage of .go files that pass gofmt
+// Percentage returns the percentage of .rs files that pass gofmt
 func (g Clippy) Percentage() (float64, []FileSummary, error) {
 	return GoTool(g.Dir, g.Filenames, []string{"cargo", "clippy"})
 }

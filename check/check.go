@@ -53,14 +53,8 @@ func Run(dir string) (ChecksResult, error) {
 	defer RevertFiles(skipped)
 
 	checks := []Check{
-		// GoFmt{Dir: dir, Filenames: filenames},
-		// GoVet{Dir: dir, Filenames: filenames},
-		// GoLint{Dir: dir, Filenames: filenames},
-		// GoCyclo{Dir: dir, Filenames: filenames},
-		// License{Dir: dir, Filenames: []string{}},
-		// Misspell{Dir: dir, Filenames: filenames},
+		License{Dir: dir, Filenames: []string{}},
 		Clippy{Dir: dir, Filenames: filenames},
-		// ErrCheck{Dir: dir, Filenames: filenames}, // disable errcheck for now, too slow and not finalized
 	}
 
 	ch := make(chan Score)
