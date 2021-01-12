@@ -1,13 +1,10 @@
 language: go
 
-go: 
-  - 1.11.x
-  - 1.12.x
-  - tip
+go:
+  - 1.15.x
 
 install:
-  - make install
+  - env GO111MODULE=off go build -v .
 
 script:
-  - make lint
-  - make test
+  - env GO111MODULE=on go vet .

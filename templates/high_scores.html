@@ -9,11 +9,34 @@
   <![endif]-->
   <meta name="description" content="Rust project code quality report cards">
   <meta name="keywords" content="Rust Report Card, Rust, GitHub, Code, Programming Language">
+  <meta name="author" content="Ri Xu">
+  <meta name="robots" content="all">
   <meta content="always" name="referrer">
+  <meta name="copyright" content="Ri Xu Online">
   <meta name="language" content="en-US">
+  <meta name="owner" content="Ri Xu">
+  <meta name="topic" content="Programming,Tools,Rust">
   <meta name="category" content="Tools">
   <meta name="summary" content="Rust Report Card">
+  <meta name="rating" content="General">
+  <meta name="coverage" content="Worldwide">
+  <meta name="distribution" content="Global">
+  <meta property="fb:app_id" content="663579267156644">
+  <meta property="article:author" content="xuri">
+  <meta property="og:site_name" content="Ri Xu Online">
+  <meta property="og:title" content="Rust Report Card">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://rust-reportcard.xuri.me">
+  <meta property="og:image" content="https://rust-reportcard.xuri.me/assets/apple-touch-icon.png">
+  <meta property="og:description" content="Rust project code quality report cards">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:url" content="https://rust-reportcard.xuri.me">
+  <meta property="twitter:title" content="Rust Report Card">
+  <meta property="twitter:description" content="Rust project code quality report cards">
+  <meta property="twitter:image" content="https://rust-reportcard.xuri.me/assets/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="dns-prefetch" href="//rust-reportcard.xuri.me">
+  <link href="https://rust-reportcard.xuri.me/" rel="prefetch">
   <link rel="copyright" href="http://www.opensource.org/licenses/mit-license.php" />
   <link rel="alternate icon" type="image/png" href="/assets/apple-touch-icon.png">
   <link rel="icon" sizes="32x32" type="image/svg+xml" href="/assets/favicon.svg">
@@ -83,7 +106,7 @@
         <tbody>
           [[ range $index, $highScore := .HighScores ]]
           <tr>
-            <td><a href="/report/[[ $highScore.Repo]]">[[ add $index 1 ]]</td></a>
+            <td><a href="/report/[[ $highScore.Repo]]">[[ add $index 1 ]]</a></td>
             <td><a href="https://[[ $highScore.Repo ]]" rel="nofollow">[[ $highScore.Repo ]]</a></td>
             <td>[[ $highScore.Files ]]</td>
             <td>[[ formatScore $highScore.Score ]]</td>

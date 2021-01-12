@@ -9,11 +9,34 @@
   <![endif]-->
   <meta name="description" content="Rust project code quality report cards">
   <meta name="keywords" content="Rust Report Card, Rust, GitHub, Code, Programming Language">
+  <meta name="author" content="Ri Xu">
+  <meta name="robots" content="all">
   <meta content="always" name="referrer">
+  <meta name="copyright" content="Ri Xu Online">
   <meta name="language" content="en-US">
+  <meta name="owner" content="Ri Xu">
+  <meta name="topic" content="Programming,Tools,Rust">
   <meta name="category" content="Tools">
   <meta name="summary" content="Rust Report Card">
+  <meta name="rating" content="General">
+  <meta name="coverage" content="Worldwide">
+  <meta name="distribution" content="Global">
+  <meta property="fb:app_id" content="663579267156644">
+  <meta property="article:author" content="xuri">
+  <meta property="og:site_name" content="Ri Xu Online">
+  <meta property="og:title" content="Rust Report Card">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://rust-reportcard.xuri.me">
+  <meta property="og:image" content="https://rust-reportcard.xuri.me/assets/apple-touch-icon.png">
+  <meta property="og:description" content="Rust project code quality report cards">
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:url" content="https://rust-reportcard.xuri.me">
+  <meta property="twitter:title" content="Rust Report Card">
+  <meta property="twitter:description" content="Rust project code quality report cards">
+  <meta property="twitter:image" content="https://rust-reportcard.xuri.me/assets/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="dns-prefetch" href="//rust-reportcard.xuri.me">
+  <link href="https://rust-reportcard.xuri.me/" rel="prefetch">
   <link rel="copyright" href="http://www.opensource.org/licenses/mit-license.php" />
   <link rel="alternate icon" type="image/png" href="/assets/apple-touch-icon.png">
   <link rel="icon" sizes="32x32" type="image/svg+xml" href="/assets/favicon.svg">
@@ -60,9 +83,9 @@
         <span class="header-item">
           <a href="/high_scores">High Scores</a>
         </span>
-        <!--           <span class="header-item">
-            <a href="https://github.com/xuri">GitHub</a>
-          </span> -->
+        <span class="header-item">
+          <a href="https://github.com/xuri/rust-reportcard">GitHub</a>
+        </span>
         <span class="header-item">
           <a href="/about">About</a>
         </span>
@@ -74,7 +97,7 @@
       <div class="columns">
         <div class="column has-text-centered">
           <h3 class="subtitle">Preparing report...</h3>
-          <button class="button is-loading is-large" style="border: none;">
+          <button class="button is-loading is-large" style="border: none;"></button>
         </div>
       </div>
     </div>
@@ -118,7 +141,14 @@
         <p><span class="huge">{{grade}}</span> &nbsp;&nbsp; {{gradeMessage grade}} &emsp;&emsp; Found <strong>{{issues}}</strong> issues across <strong>{{files}}</strong> files</p>
       </div>
       <div class="column is-one-quarter badge-col">
-        <img class="badge" tag="{{repo}}" src="/badge/{{repo}}"/>
+        <img class="badge" alt="{{repo}}" src="/badge/{{repo}}"/>
+        <a class="button is-info is-small tweet-button"
+          href="https://twitter.com/intent/tweet?text={{ repo }}%20gets%20{{#if use_an}}an{{else}}a{{/if}}%20{{ grade_encoded }}%20on%20rust-reportcard.xuri.me!%20%23rust">
+            <span class="icon is-small">
+              <i class="fa fa-twitter"></i>
+            </span>
+            <span>Tweet</span>
+        </a>
       </div>
   </script>
   <script id="template-check" type="text/x-handlebars-template">
@@ -183,7 +213,7 @@
     var loading = [[if .loading]]true[[ else]] false[[end]];
     var response = [[if .loading]]false[[else]][[.response]][[end]];
   </script>
-  <script type="text/javascript">
+  <script>
     Handlebars.registerHelper('gradeMessage', function (grade, options) {
       var gradeMessages = {
         "A+": "Excellent!",

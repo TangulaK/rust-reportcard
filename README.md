@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/xuri/rust-reportcard/blob/master/LICENSE)
 
-A web application that generates a report on the quality of an open source go project. It uses `rust-clippy` measures. To get a report on your own project, try using the hosted version of this code running at [rust-reportcard.xuri.me](https://rust-reportcard.xuri.me).
+A web application that generates a report on the quality of an open source Rust project. It uses `rust-clippy` measures. To get a report on your own project, try using the hosted version of this code running at [rust-reportcard.xuri.me](https://rust-reportcard.xuri.me).
 
 ## Sponsors
 
