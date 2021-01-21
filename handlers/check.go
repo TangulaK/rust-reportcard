@@ -48,8 +48,8 @@ func CheckHandler(w http.ResponseWriter, r *http.Request, db *badger.DB) {
 
 func updateHighScores(txn *badger.Txn, resp checksResp, repo string) error {
 	// check if we need to update the high score list
-	if resp.Files < 10 {
-		// only repos with >= 10 files are considered for the high score list
+	if resp.Files < 50 {
+		// only repos with >= 50 files are considered for the high score list
 		return nil
 	}
 

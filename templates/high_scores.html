@@ -68,14 +68,14 @@
       </div>
 
       <!-- Hamburger menu (on mobile) -->
-      <span class="header-toggle">
+      <span class="header-toggle" data-target="header-menu">
         <span></span>
         <span></span>
         <span></span>
       </span>
 
       <!-- Right side -->
-      <div class="header-right header-menu">
+      <div class="header-right header-menu" id="header-menu">
         <span class="header-item is-active">
           <a href="/high_scores">High Scores</a>
         </span>
@@ -84,6 +84,9 @@
         </span>
         <span class="header-item">
           <a href="/supporters">Supporters</a>
+        </span>
+        <span class="header-item">
+          <a href="https://patreon.com/xuri">Patreon</a>
         </span>
         <span class="header-item">
           <a href="/about">About</a>
@@ -116,12 +119,34 @@
       </table>
       <hr>
       <p>
-        Reports generated for <strong>[[ .Count ]]</strong> unique repos so far. Only repos with >= 10 files are
+        Reports generated for <strong>[[ .Count ]]</strong> unique repos so far. Only repos with >= 50 files are
         considered for the high score list.
       </p>
     </div>
   </section>
   [[ template "footer" . ]]
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      // Get all "header-toggle" elements
+      var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.header-toggle'), 0);
+      // Check if there are any navbar burgers
+      if ($navbarBurgers.length > 0) {
+        // Add a click event on each of them
+        $navbarBurgers.forEach(function ($el) {
+          $el.addEventListener('click', function () {
+            // Get the target from the "data-target" attribute
+            var target = $el.dataset.target;
+            var $target = document.getElementById(target);
+            // Toggle the class on both the "header-toggle" and the "header-menu"
+            $el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+
+          });
+        });
+      }
+    })
+  </script>
 </body>
 
 </html>
