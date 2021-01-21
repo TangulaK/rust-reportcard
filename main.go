@@ -104,8 +104,9 @@ func main() {
 	if err := os.MkdirAll("_repos/src/github.com", 0755); err != nil && !os.IsExist(err) {
 		log.Fatal("ERROR: could not create repos dir: ", err)
 	}
-
-	db, err := badger.Open(badger.DefaultOptions("/usr/local/badger"))
+	opt := badger.DefaultOptions("/usr/local/badger")
+	opt.Truncate = true
+	db, err := badger.Open(opt)
 	if err != nil {
 		log.Fatal("ERROR: could not open badger db: ", err)
 	}
