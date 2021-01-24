@@ -299,13 +299,12 @@ func fileURL(dir, filename string) string {
 		}
 		return fmt.Sprintf("https://github.com/golang/%s/blob/master%s", pkg, strings.TrimPrefix(filename, "/"+base))
 	case strings.HasPrefix(base, "github.com/"):
+	case strings.HasPrefix(base, "gitlab.com/"):
 		if len(strings.Split(base, "/")) == 4 {
 			base = strings.Join(strings.Split(base, "/")[0:3], "/")
 		}
-		return fmt.Sprintf("https://%s/blob/master%s", base, strings.TrimPrefix(filename, "/"+base))
+		return fmt.Sprintf("https://%s/blob/master%s", strings.TrimSuffix(base, ".git"), strings.TrimPrefix(filename, "/"+base))
 	case strings.HasPrefix(base, "gopkg.in/"):
-		fmt.Println(goPkgInToGitHub(base))
-		fmt.Println(strings.TrimPrefix(filename, "/"+base))
 		return goPkgInToGitHub(base) + strings.TrimPrefix(filename, "/"+base)
 	}
 

@@ -77,7 +77,8 @@ func download(path, dest string, firstAttempt bool) (root *vcs.RepoRoot, err err
 			}
 		}
 		// err = root.VCS.Create(fullLocalPath, rootRepo)
-		rootRepo = strings.Replace(rootRepo, "https://git:git@github.com/", "git@github.com:", -1)
+		replacer := strings.NewReplacer("https://git:git@github.com/", "git@github.com:", "https://git:git@gitlab.com/", "git@gitlab.com:")
+		rootRepo = replacer.Replace(rootRepo)
 		cmd := exec.Command("git", "clone", rootRepo, fullLocalPath)
 		err = cmd.Run()
 		if err != nil {
