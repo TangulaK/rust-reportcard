@@ -71,7 +71,7 @@ func download(path, dest string, firstAttempt bool) (root *vcs.RepoRoot, err err
 		if err != nil {
 			log.Printf("WARN: could not parse root.Repo: %v", err)
 		} else {
-			if u.Host == "github.com" {
+			if u.Host == "github.com" || u.Host == "gitlab.com" {
 				u.User = url.UserPassword("git", "git")
 				rootRepo = u.String()
 			}
