@@ -26,7 +26,7 @@ func BadgeHandler(w http.ResponseWriter, r *http.Request, db *badger.DB, repo st
 
 	if err != nil {
 		log.Printf("ERROR: fetching badge for %s: %v", repo, err)
-		url := "https://img.shields.io/badge/go%20report-error-lightgrey.svg?style=" + style
+		url := fmt.Sprintf("https://rust-reportcard.xuri.me/assets/badges/error_%s.svg", style)
 		http.Redirect(w, r, url, http.StatusTemporaryRedirect)
 		return
 	}
