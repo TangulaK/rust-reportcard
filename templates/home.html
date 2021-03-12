@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <!--[if IE]>
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <![endif]-->
@@ -101,7 +101,9 @@
         <form method="POST" action="/checks" id="check_form">
           <div>
             <p class="url">
-              <input name="repo" type="text" class="input-box" placeholder="github.com/xuri/excelize-rs" />
+              <label for="repo">
+                <input name="repo" type="text" id="repo" class="input-box" placeholder="github.com/xuri/excelize-rs" />
+              </label>
             </p>
           </div>
           <div>
@@ -169,10 +171,8 @@
 
   [[ template "footer" . ]]
 
-  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.2.1/jquery.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"
-    integrity="sha256-+JMHsXRyeTsws/tzbIh5YHQxRdKCuNjmvNcTFtY6DLc=" crossorigin="anonymous"></script>
+  <script src="/assets/jquery.min.js"></script>
+  <script src="/assets/handlebars.min.js"></script>
   <script id="template-alert" type="text/x-handlebars-template">
       <div class="notification is-warning">
           <button class="delete"></button>
